@@ -44,8 +44,8 @@ document.getElementById("albumSearch").addEventListener(
 
 document.getElementById("download").addEventListener("click", function () {
   html2canvas(document.querySelector("#meme"), {
-    allowTaint: true,
-    foreignObjectRendering: true,
+    allowTaint: false,
+    useCORS: true
   }).then(function (canvas) {
     console.log(canvas);
     saveAs(canvas.toDataURL(), "obamaSwag.png");
