@@ -8,7 +8,7 @@ document.getElementById("albumSearch").addEventListener(
     searchTerm = this.value;
     if(searchTerm != ""){
     let searchUrl =
-      "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" +
+      "https://ws.audioscrobbler.com/2.0/?method=album.search&album=" +
       searchTerm +
       "&api_key=7d11ca66e0ac773db3062742ebbf9b1d&format=json";
     fetch(searchUrl)
