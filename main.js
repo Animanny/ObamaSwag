@@ -20,12 +20,16 @@ document.getElementById("albumSearch").addEventListener(
           return;
         }
 
-        // Examine the text in the response
+        // Examine the albums in the response
         response.json().then(function (data) {
             let searchResults = data;
-            console.log(searchResults['results']['albummatches']['album'][0]['name']+
-            " - "+
-            searchResults['results']['albummatches']['album'][0]['artist']);
+            let top5albums = searchResults['results']['albummatches']['album'].splice(0,5);
+            let top5AlbumsArt = [];
+
+            for(let album of top5albums){
+                top5AlbumsArt.push(album['image'][3]["#text"]);
+            }
+            document.getElementById("albumCover").src = top5AlbumsArt[0];
         });
       })
       .catch(function (err) {
